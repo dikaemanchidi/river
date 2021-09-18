@@ -18,19 +18,21 @@
   </thead>
 
   <body>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.content %></td>
-        <td><%= blog.area %></td>
-        <td><%= blog.time %></td>
-        <td><%= blog.ph_value %></td>
-        <td><%= blog.clarity_value %></td>
-        <td><%= blog.temperature_value %></td>
-        <td><%= blog.status %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  </body>
-</table>
+     <% @blogs.each do |blog| %>
+       <tr>
+         <td><%= blog.title %></td>
+         <td><%= blog.content %></td>
+         <td><%= blog.area %></td>
+         <td><%= blog.time %></td>
+         <td><%= blog.ph_value %></td>
+         <td><%= blog.clarity_value %></td>
+         <td><%= blog.temperature_value %></td>
+         <td><%= blog.status %></td>
+         <td><%= link_to 'Show', blog %></td>
+         <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+         <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       </tr>
+ <% end %>
+   </body>
+ </table>
+ <%= link_to 'New Blog', new_blog_path %>
