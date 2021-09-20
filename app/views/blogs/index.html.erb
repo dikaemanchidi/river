@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Blogs</h1>
+<%= form_tag(blogs_path, method: :get) do  %>
+               <%= text_field_tag :terms, params[:terms], placeholder: "search by area" %>
+               <%= submit_tag 'Search', area:nil %>
+<% end %>
 
 <table>
   <thead>

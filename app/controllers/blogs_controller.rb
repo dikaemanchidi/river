@@ -2,7 +2,11 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   def index
-    @blogs = Blog.all
+    @blogs = if  params[:terms]
+         Blog.where('area like ? or title like ?', "%#{params[:terms]}%", "%#{params[:terms]}%").order('id ASC')
+       else
+       @blogs = Blog.all
+     end
   end
 
   # GET /blogs/1 or /blogs/1.json
