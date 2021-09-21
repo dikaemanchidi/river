@@ -1,57 +1,50 @@
-<%= form_with(model: blog, local: true) do |form| %>
-  <% if blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+<div class="container">
+<div class="content">
 
-      <ul>
-      <% blog.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= form_with(model: blog, local: true) do |form| %>
+    <% if blog.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+        <ul>
+        <% blog.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.text_field :title, class:"form-control", placeholder:"Enter Title"  %><br>
+    </div>
+
+    <div class="field">
+      <%= form.text_area :content, class:"form-control", placeholder:"Enter Content"  %><br>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :area, class:"form-control", placeholder:"Enter River location"  %><br>
+    </div>
+
+    <div class="field">
+      <%= form.date_select :time %><br>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :ph_value, class:"form-control", placeholder:"Enter PH Value"  %><br>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :clarity_value , class:"form-control", placeholder:"Enter Clarity value" %><br>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :temperature_value, class:"form-control", placeholder:"Enter Temperature Value" %><br>
+    </div>
+
+    <div class="actions">
+    <%= form.submit "Add River", class:"btn btn-primary" %><br>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
   </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :area %>
-    <%= form.text_field :area %>
-  </div>
-
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.date_select :time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ph_value %>
-    <%= form.text_field :ph_value %>
-  </div>
-
-  <div class="field">
-    <%= form.label :clarity_value %>
-    <%= form.text_field :clarity_value %>
-  </div>
-
-  <div class="field">
-    <%= form.label :temperature_value %>
-    <%= form.text_field :temperature_value %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

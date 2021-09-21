@@ -1,3 +1,5 @@
+<div class="container">
+<div class="content">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -39,8 +41,12 @@
   <strong>Status:</strong>
   <%= @blog.status %>
 </p>
+</div>
+</div>
+<div class="container">
 
-  <p>List of comments (the contents below from here are important)</p>
+  <center>List of comments (the contents below from here are important)</center>
+
   <!-- Get the HTML id of this comments_area and update only that part of the div-->
   <div id="comments_area">
     <!-- Render to display a list of posted comments on the blog details page -->
@@ -52,3 +58,4 @@
   <%= link_to 'Return', blogs_path %>
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
+</div>

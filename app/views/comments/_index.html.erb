@@ -1,15 +1,14 @@
-<ul>
-  <% comments.each do |comment| %>
-    <% if comment.id.present? %>
-      <li>
-        <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
-        <p><%= comment.content %></p>
-        <p><%= link_to "Edit comment", edit_blog_comment_path(blog, comment), remote: true %></p>
-        <!-- Addendum -->
-        <p><%= link_to "Delete comment", blog_comment_path(comment.blog_id, comment.id), method: :delete, remote: true,
-                                        data: { confirm: "Do you really want to delete this?"} %></p>
-        <!-- So far -->
-      </li>
-    <% end %>
+<ul class="list-group">
+<% comments.each do |comment| %>
+  <% if comment.id.present? %>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+  <%= comment.content %>
+    <span class="badge badge-primary badge-pill"><%= link_to edit_blog_comment_path(blog, comment), remote: true, title: "Editer" do %>
+      <i class="bi bi-pencil" style="color: green;"></i>
+      <% end %> <%= link_to blog_comment_path(comment.blog_id, comment.id), method: :delete, remote: true, data: {confirm: "Are you sure ?"} do %>
+        <i class="bi bi-trash" style="color: red;"></i>
+        <% end %></span>
+  </li>
+   <% end %>
   <% end %>
 </ul>

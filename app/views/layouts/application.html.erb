@@ -23,8 +23,10 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <form class="form-inline my-2 my-lg-0">
+      <ul>
+      <li><%= link_to "Home", homes_index_path, class:"btn btn-outline-light btn-rounded" %></li>
         <% if user_signed_in? %>
-        <ul>
+
   <li>
     <%= link_to "Blog post", blogs_path, class:"link-light" %>
   </li>
@@ -37,8 +39,9 @@
 
 
         <% else %>
-          <%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-light btn-rounded ml" %>
-          <%= link_to "Login", new_user_session_path, class:"btn btn-outline-light btn-rounded ml" %>
+        <li><%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-light btn-rounded " %></li>
+        <li><%= link_to "Login", new_user_session_path, class:"btn btn-outline-light btn-rounded  " %></li>
+          </ul>
         <% end %>
       </form>
     </div>
