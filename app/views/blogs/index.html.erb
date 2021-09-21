@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Blogs</h1>
+<%= form_tag(blogs_path, method: :get) do  %>
+               <%= text_field_tag :terms, params[:terms], placeholder: "search by area" %>
+               <%= submit_tag 'Search', area:nil %>
+<% end %>
 
-<table>
+  <table class="table table-dark table-hover table-bordered">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Area</th>
-      <th>Time</th>
-      <th>Ph value</th>
-      <th>Clarity value</th>
-      <th>Temperature value</th>
-      <th>Status</th>
-      <th colspan="3"></th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Area</th>
+      <th scope="col">Time</th>
+      <th scope="col">pH value</th>
+      <th scope="col">clarity value</th>
+      <th scope="col">Temperature</th>
+      <th scope="col">Status</th>
+        <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -35,4 +39,4 @@
  <% end %>
    </body>
  </table>
- <%= link_to 'New Blog', new_blog_path %>
+ <%= link_to 'New Blog', new_blog_path, class:"btn btn-success" %>
