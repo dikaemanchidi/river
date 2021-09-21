@@ -10,3 +10,13 @@ user.name = 'Admin'
 user.password = 'admin@12345'
 user.admin = 'true'
 user.save!
+10.times do |t|
+    User.create! :email => "itsme#{t}@gmail.com", :password => "mysecret#{t}", :password_confirmation => "mysecret#{t}"
+  end
+
+10.times do |t|
+      Blog.create! :title => "itsme#{t}", :content => "mysecret#{t}", :area => "mysecret#{t}"
+end
+10.times do |t|
+		Comment.create!(blog_id: rand(1..10), :content => "content#{t}")
+  end
