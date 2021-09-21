@@ -4,31 +4,83 @@
     <title>River2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
   </head>
 
-  <body>
-    <% if user_signed_in? %>
-      <%= link_to "Blog post", blogs_path %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <body style="background:#e9ebee">
 
-              <%= link_to "Admin Dashboard",  rails_admin.dashboard_path,:"data-no-turbolink"=>true,method:"get" %>
-    
-    <% else %>
-      <%= link_to "sign up", new_user_registration_path %>
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
+    <body style="background:#e9ebee">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-light" style="background-color: #3c5a98;color:white">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#" style="color:white;font-size:40px;margin-left:153px"><b>River Detector App</b></a>
 
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <form class="form-inline my-2 my-lg-0">
+        <% if user_signed_in? %>
+        <ul>
+  <li>
+    <%= link_to "Blog post", blogs_path, class:"link-light" %>
+  </li>
+
+  <li>
+    <%= link_to "Admin Dashboard",  rails_admin.dashboard_path,:"data-no-turbolink"=>true,method:"get", class:"link-light" %>
+  </li>
+  </ul>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"btn btn-outline-light btn-rounded ml" %>
+
+
+        <% else %>
+          <%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-light btn-rounded ml" %>
+          <%= link_to "Login", new_user_session_path, class:"btn btn-outline-light btn-rounded ml" %>
+        <% end %>
+      </form>
+    </div>
+</nav>
     <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-      <p id="notice"><%= notice %></p>
+      <p class="alert alert-success", style='margin:2%'><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
+      <p class="alert alert-danger", style='margin:2%'><%= alert %></p>
     <% end %>
     <%= yield %>
-  </body>
 
+<section class="">
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: #0a4275;">
+    <!-- Grid container -->
+      <!-- Section: CTA -->
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span class="me-3">Register for free</span>
+          <button type="button" class="btn btn-outline-light btn-rounded">
+            Sign up!
+          </button>
+        </p>
+      </section>
+      <!-- Section: CTA -->
+
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2021 Copyright:
+      <a class="text-white">River.detector. SA. All rights reserved</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</section>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+
+</body>
 </html>
