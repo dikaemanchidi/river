@@ -6,10 +6,9 @@ describe 'Sign_up users function' do
     visit new_user_registration_path
     fill_in 'Name', with: 'test_name'
     fill_in 'Email', with:  'tess1@gmail.com'
-    fill_in 'dob', with:  '1990_03_21'
     fill_in 'Password', with: 'password1'
     fill_in 'Password confirmation',  with: 'password1'
-    click_button 'Create account'
+    click_button 'Sign up'
     expect(page).to have_content 'Welcome! You have signed up successfully'
   end
 end
@@ -32,8 +31,8 @@ describe 'Session functionality test' do
     end
     context 'to be able to logout' do
       it 'enables logout' do
-        click_on "Logout"
-        expect(page).to have_content 'You need to sign in or sign up before continuing.'
+        click_on "Log out"
+        expect(page).to have_content 'Signed out successfully.'
       end
     end
   end
