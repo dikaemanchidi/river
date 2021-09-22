@@ -19,22 +19,25 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#" style="color:white;font-size:40px;margin-left:153px"><b>River Detector App</b></a>
+    <a class="navbar-brand" href="#" style="color:white;font-size:40px;margin-left:10px"><b>River Detector App</b></a>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <form class="form-inline my-2 my-lg-0">
+     
       <ul>
-      <li><%= link_to "Home", homes_index_path, class:"btn btn-outline-light btn-rounded" %></li>
+          <li><%= link_to "Home", homes_index_path, class:"btn btn-outline-light btn-rounded" %></li>
         <% if user_signed_in? %>
 
   <li>
     <%= link_to "Blog post", blogs_path, class:"link-light" %>
   </li>
-
+<% if user_signed_in? && current_user.admin== 'true'%>
   <li>
     <%= link_to "Admin Dashboard",  rails_admin.dashboard_path,:"data-no-turbolink"=>true,method:"get", class:"link-light" %>
   </li>
+         <% end %>
   </ul>
+        
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"btn btn-outline-light btn-rounded ml" %>
 
 
