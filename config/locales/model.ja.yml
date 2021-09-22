@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    models:
+      blog: ブログ
+      user: ユーザー
+      comment: コメント
+    attributes:
+      blog:
+        title: 名前
+        content: 説明
+        area: 説明
+        time: 時間
+        ph_value: ph値
+        clarity_value: 希少価値
+        temperature_value: 温度
+        status: 状態
+      user:
+        admin: 管理者
+        dob: 生年月日
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+      comment:
+        content: コンテンツ
