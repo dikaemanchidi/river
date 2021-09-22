@@ -31,10 +31,11 @@
   <li>
     <%= link_to "Blog post", blogs_path, class:"link-light" %>
   </li>
-
+<% if user_signed_in? && current_user.admin== 'true'%>
   <li>
     <%= link_to "Admin Dashboard",  rails_admin.dashboard_path,:"data-no-turbolink"=>true,method:"get", class:"link-light" %>
   </li>
+         <% end %>
   </ul>
         
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class:"btn btn-outline-light btn-rounded ml" %>
