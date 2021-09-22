@@ -8,4 +8,6 @@ background-image: url('https://mdbootstrap.com/img/new/fluid/nature/015.jpg');
   <p>
     The application is created to detect pullution across rivers in South Africa in order to help scientsit know the where the source is and quickly solve it. Many rivers are polluted however it is difficult to track down the source as river flows. Community members that live along different parts of the river can report the pollution in the application. The fuction is to make sure the river water is never polluted for better use for all. The benefit is that scietist will easily know where the pollution occurs and communities will always have a clean flowing river.
     </p>
+    <button class="top-btn guest-btn"><%= link_to "Guest login ", users_guest_sign_in_path, method: :post %></button>
+  <button class="top-btn admin-guest-btn"><%= link_to "Admin login", users_admin_guest_sign_in_path, method: :post %></button>
 </div>
